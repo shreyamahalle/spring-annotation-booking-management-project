@@ -17,6 +17,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     @Autowired
     private DeliveryAgentRepository deliveryAgentRepository;
     private Scanner scanner;
+
     public void insertDeliveryAgent() {
         System.out.println("Pls enter deliveryAgent mobileNo:");
         int mobileNo = Integer.parseInt(scanner.nextLine());

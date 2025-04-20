@@ -21,6 +21,7 @@ public class CustomerRepository {
             connection = new ConnectionService().getConnection();
         }
     }
+
     public boolean addCustomer(Customer customer) throws SQLException {
         this.initConnection();
         String query = "INSERT INTO customer VALUES (?, ?, ?, ?, ?)";
@@ -34,7 +35,7 @@ public class CustomerRepository {
 
             System.out.println("Inserting customer data to table: " + customer);
 
-            int rowsAffected = preparedStatement.executeUpdate(); // ✅ Required to execute the query
+            int rowsAffected = preparedStatement.executeUpdate(); //Required to execute the query
             return rowsAffected > 0; // Return true if insertion is successful
 
         } catch (SQLException e) {

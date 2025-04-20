@@ -19,11 +19,20 @@ public class RestaurantService {
     private RestaurantRepository restaurantRepository;
     private Scanner scanner;
 
+    public static void displayRestaurant() {
+        try {
+//            restaurants.forEach((id, restaurant) ->
+//                    System.out.println("Restaurant Id " + id + " = " + restaurant));
+        } catch (Exception e) {
+            System.out.println("Invalid input type. Please enter correct data.");
+        }
+    }
+
     public List<Restaurant> retrieveRestaurants() {
         return restaurantRepository.retrieveRestaurants();
     }
 
-    public  void insertRestaurant(Restaurant restaurant) throws SQLException {
+    public void insertRestaurant(Restaurant restaurant) throws SQLException {
         restaurantRepository.addRestaurant(restaurant);
     }
 
@@ -51,7 +60,7 @@ public class RestaurantService {
         }
     }
 
-    public  void createRestaurant() {
+    public void createRestaurant() {
         Restaurant restaurant = new Restaurant();
         restaurantRepository.createRestaurant(restaurant);
         restaurantRepository.displayRestaurant(restaurant);
@@ -75,15 +84,6 @@ public class RestaurantService {
             restaurant.setCity(city);
             restaurant.setArea(area);
 
-        } catch (Exception e) {
-            System.out.println("Invalid input type. Please enter correct data.");
-        }
-    }
-
-    public static void displayRestaurant() {
-        try {
-//            restaurants.forEach((id, restaurant) ->
-//                    System.out.println("Restaurant Id " + id + " = " + restaurant));
         } catch (Exception e) {
             System.out.println("Invalid input type. Please enter correct data.");
         }

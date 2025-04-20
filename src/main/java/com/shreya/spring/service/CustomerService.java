@@ -18,12 +18,10 @@ import java.util.Scanner;
 
 public class CustomerService {
 
-    @Autowired
-    private  CustomerRepository customerRepository;
-    private Scanner scanner;
-
     private final Map<Integer, Customer> customers = new HashMap<>();
-
+    @Autowired
+    private CustomerRepository customerRepository;
+    private Scanner scanner;
 
     public void insertCustomer() throws SQLException {
         Scanner scanner = new Scanner(System.in);
@@ -51,7 +49,7 @@ public class CustomerService {
         }
     }
 
-    public  void deleteCustomer() {
+    public void deleteCustomer() {
         Scanner sc = new Scanner(System.in);
         try {
             System.out.println("Enter customer ID to delete:");
@@ -67,7 +65,7 @@ public class CustomerService {
         }
     }
 
-    public  void updateCustomer() throws SQLException {
+    public void updateCustomer() throws SQLException {
         if (customerRepository.updateCustomer(2, "shreya")) {
             System.out.println("Customer updated successfully ");
         } else {

@@ -13,6 +13,7 @@ public class OrderNumberController {
     OrderService orderService = new OrderService();
     Order order = new Order();
     private Scanner scanner;
+
     public void run() {
         int option;
         do {

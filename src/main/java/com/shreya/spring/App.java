@@ -1,4 +1,5 @@
 package com.shreya.spring;
+
 import com.shreya.spring.configuration.AppConfig;
 import com.shreya.spring.controller.*;
 import com.shreya.spring.exception.InvalideCustomerIDException;
@@ -47,7 +48,7 @@ public class App {
             }
             switch (option) {
                 case 2:
-                    DeliveryAgentController deliveryAgentController = context.getBean( DeliveryAgentController.class);
+                    DeliveryAgentController deliveryAgentController = context.getBean(DeliveryAgentController.class);
                     deliveryAgentController.run();
                     DeliveryAgent deliveryAgent = new DeliveryAgent();
                     System.out.println("DeliveryAgent created : " + deliveryAgent);
@@ -67,7 +68,7 @@ public class App {
             }
             switch (option) {
                 case 4:
-                    RestaurantController restaurantController = context.getBean( RestaurantController.class);
+                    RestaurantController restaurantController = context.getBean(RestaurantController.class);
                     restaurantController.run();
                     Restaurant restaurant = new Restaurant();
                     System.out.println("Restaurant created : " + restaurant);

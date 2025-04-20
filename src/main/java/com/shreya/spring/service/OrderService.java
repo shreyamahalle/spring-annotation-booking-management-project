@@ -19,16 +19,16 @@ public class OrderService implements OrderNumberService {
     private OrderRepository orderRepository;
     private Scanner scanner;
 
-    public  void insertOrder(Order order) throws SQLException {
+    public void insertOrder(Order order) throws SQLException {
         orderRepository.addOrder(order);
     }
 
-    public  void Order(Order order) throws SQLException {
+    public void Order(Order order) throws SQLException {
 
         orderRepository.retrieveOrder(1, "abc");
     }
 
-    public  void deleteOrder() {
+    public void deleteOrder() {
 
         try {
             if (orderRepository.deleteOrder(1)) {
@@ -41,7 +41,7 @@ public class OrderService implements OrderNumberService {
         }
     }
 
-    public  void updateOrder() throws SQLException {
+    public void updateOrder() throws SQLException {
         if (orderRepository.updateOrder(2, "meal")) {
             System.out.println("Order updated successfully ");
         } else {
@@ -50,7 +50,7 @@ public class OrderService implements OrderNumberService {
 
     }
 
-    public  void deleteOrder(int orderId) {
+    public void deleteOrder(int orderId) {
         String removeOrder = String.valueOf(orderId);
         System.out.println("remove order " + removeOrder);
     }
