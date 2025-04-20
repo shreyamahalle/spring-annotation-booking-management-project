@@ -38,7 +38,7 @@ public class CustomerController {
                 switch (option) {
                     case 1:
                         customerService.createCustomer();
-                        customerService.displayCustomers();
+                        customerService.insertCustomer();
                         customerService.displayCustomerInfo();
                         break;
                     case 2:
