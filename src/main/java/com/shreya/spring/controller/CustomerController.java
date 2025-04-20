@@ -4,6 +4,7 @@ import com.shreya.spring.exception.CustomerException;
 import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.service.CustomerService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.util.Scanner;
 @AllArgsConstructor
 public class CustomerController {
 
+    @Autowired
     private final Scanner sc = new Scanner(System.in);
     private CustomerService customerService;
 

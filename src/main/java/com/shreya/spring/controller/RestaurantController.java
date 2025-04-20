@@ -3,6 +3,7 @@ package com.shreya.spring.controller;
 import com.shreya.spring.exception.CustomerException;
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.service.RestaurantService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 public class RestaurantController {
 
     private final Scanner sc = new Scanner(System.in);
-    Restaurant restaurant = new Restaurant();
+    @Autowired
     private RestaurantService restaurantService;
 
     public void run() {
@@ -35,7 +36,6 @@ public class RestaurantController {
                     case 1:
                         restaurantService.createRestaurant();
                         RestaurantService.displayRestaurant();
-                        System.out.print("restaurant " + restaurant);
                         break;
                     case 2:
                         restaurantService.displayRestaurant();

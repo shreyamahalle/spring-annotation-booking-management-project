@@ -2,6 +2,7 @@ package com.shreya.spring.controller;
 
 import com.shreya.spring.exception.DeliveryAgentException;
 import com.shreya.spring.service.DeliveryAgentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
@@ -9,11 +10,14 @@ import java.util.Scanner;
 @Component
 public class DeliveryAgentController {
 
+    // DO NOT autowire Scanner — create normally
     private final Scanner sc = new Scanner(System.in);
+
+    //  Autowire the service properly
+    @Autowired
     private DeliveryAgentService deliveryAgentService;
 
     public void run() {
-
         int option;
         do {
             System.out.println("---- DeliveryAgent ----");
@@ -28,36 +32,31 @@ public class DeliveryAgentController {
             option = Integer.parseInt(sc.nextLine());
             try {
                 switch (option) {
-                    case 1:
+                    case 1 -> {
                         deliveryAgentService.createDeliveryAgent();
                         deliveryAgentService.displayDeliveryAgent();
-                       // System.out.println("DeliveryAgent " + deliveryAgent);
-                        break;
-                    case 2:
-                        deliveryAgentService.displayDeliveryAgent();
-                        break;
-                    case 3:
+                    }
+                    case 2 -> deliveryAgentService.displayDeliveryAgent();
+                    case 3 -> {
                         System.out.println("Performing create operation on deliveryAgent");
                         deliveryAgentService.insertDeliveryAgent();
-                        break;
-                    case 4:
+                    }
+                    case 4 -> {
                         System.out.println("delete deliveryAgent");
                         deliveryAgentService.deleteDeliveryAgent();
-                        break;
-                    case 5:
+                    }
+                    case 5 -> {
                         System.out.println("Retrieve DeliveryAgent");
                         deliveryAgentService.retrieveDeliveryAgents().forEach(deliveryAgent -> {
-                            System.out.println("DeliveryAgent ID: " + deliveryAgent.getId() + ", name: " + deliveryAgent.getName());
+                            System.out.println("DeliveryAgent ID: " + deliveryAgent.getId() +
+                                    ", name: " + deliveryAgent.getName());
                         });
-                        break;
-                    case 0:
-                        System.out.println("Returning to Main Menu...");
-                        break;
-                    default:
-                        System.out.println("Invalid choice! Try again.");
+                    }
+                    case 0 -> System.out.println("Returning to Main Menu...");
+                    default -> System.out.println("Invalid choice! Try again.");
                 }
             } catch (DeliveryAgentException e) {
-                System.out.println("Error: " + e.getClass());
+                System.out.println("Error: " + e.getMessage());
             }
         } while (option != 0);
     }

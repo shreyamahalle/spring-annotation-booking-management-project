@@ -2,7 +2,6 @@ package com.shreya.spring.repository;
 
 import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.service.ConnectionService;
-import lombok.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
