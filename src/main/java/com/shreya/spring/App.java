@@ -83,7 +83,6 @@ public class App {
                     orderNumberService.createOrderNo();
                     customerImpl.printCustomer();
                     customerImpl.createOrder();
-                    customerImpl.displayOrder();
             }
             switch (option) {
                 case 6:

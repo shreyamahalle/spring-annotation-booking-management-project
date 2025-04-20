@@ -115,4 +115,7 @@ public class CustomerService {
             System.out.println("Invalid input. Please check the data and try again.");
         }
     }
+
+    public void displayCustomers() {
+    }
 }
