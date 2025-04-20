@@ -1,6 +1,6 @@
 package com.shreya.spring;
 
-import com.shreya.spring.config.AppConfig;
+import com.shreya.spring.configuration.AppConfig;
 import com.shreya.spring.controller.*;
 import com.shreya.spring.exception.InvalideCustomerIDException;
 import com.shreya.spring.impl.CustomerImpl;
