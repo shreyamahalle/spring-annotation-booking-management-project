@@ -33,30 +33,30 @@ public class RestaurantController {
             try {
                 switch (option) {
                     case 1:
-                        RestaurantService.createRestaurant();
+                        restaurantService.createRestaurant();
                         RestaurantService.displayRestaurant();
                         System.out.print("restaurant " + restaurant);
                         break;
                     case 2:
-                        RestaurantService.displayRestaurant();
+                        restaurantService.displayRestaurant();
                         break;
                     case 3:
                         System.out.println("Performing create operation on Restaurant");
-                        RestaurantService.insertRestaurant(new Restaurant(101, "Rai", "pune", "kharadi"));
+                        restaurantService.insertRestaurant(new Restaurant(101, "Rai", "pune", "kharadi"));
                         break;
                     case 4:
                         System.out.println("delete Restaurant");
-                        RestaurantService.deleteRestaurant();
+                        restaurantService.deleteRestaurant();
                         break;
                     case 5:
                         System.out.println("Retrieve Restaurant");
-                        RestaurantService.retrieveRestaurants().forEach(restaurant -> {
+                        restaurantService.retrieveRestaurants().forEach(restaurant -> {
                             System.out.println("restaurant ID: " + restaurant.getRegisterNo() + ", name: " + restaurant.getName());
                         });
                         break;
                     case 6:
                         System.out.println("Update Restaurant");
-                        RestaurantService.updateRestaurant();
+                        restaurantService.updateRestaurant();
                         break;
 
                     case 0:

@@ -43,11 +43,11 @@ public class OrderController {
                         break;
                     case 3:
                         System.out.println("Performing create operation on Order");
-                        OrderService.insertOrder(new Order(135, "pizza", "good", "gpay"));
+                        orderService.insertOrder(new Order(135, "pizza", "good", "gpay"));
                         break;
                     case 4:
                         System.out.println("delete Order");
-                        OrderService.deleteOrder();
+                        orderService.deleteOrder();
                         break;
                     case 5:
                         System.out.println("Retrieve Order");
@@ -57,7 +57,7 @@ public class OrderController {
                         break;
                     case 6:
                         System.out.println("Update Order");
-                        OrderService.updateOrder();
+                        orderService.updateOrder();
 
                     case 0:
                         System.out.println("Returning to Main Menu...");

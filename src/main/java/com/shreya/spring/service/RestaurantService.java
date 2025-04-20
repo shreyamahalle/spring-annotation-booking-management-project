@@ -16,23 +16,23 @@ import java.util.Scanner;
 
 public class RestaurantService {
 
-    private static final HashMap<Integer, Restaurant> restaurants = new HashMap<>();
-    private static RestaurantRepository restaurantRepository;
+    @Autowired
+    private RestaurantRepository restaurantRepository;
     private static final Scanner sc = new Scanner(System.in);
 
-    public static List<Restaurant> retrieveRestaurants() {
+    public List<Restaurant> retrieveRestaurants() {
         return restaurantRepository.retrieveRestaurants();
     }
 
-    public static void insertRestaurant(Restaurant restaurant) throws SQLException {
+    public  void insertRestaurant(Restaurant restaurant) throws SQLException {
         restaurantRepository.addRestaurant(restaurant);
     }
 
-    public static void Restaurant(Restaurant restaurant) {
+    public void Restaurant(Restaurant restaurant) {
         restaurantRepository.retrieveRestaurant(1, "abc");
     }
 
-    public static void deleteRestaurant() {
+    public void deleteRestaurant() {
         try {
             if (restaurantRepository.deleteRestaurant(1)) {
                 System.out.println("Restaurant deleted successfully!");
@@ -44,7 +44,7 @@ public class RestaurantService {
         }
     }
 
-    public static void updateRestaurant() throws SQLException {
+    public void updateRestaurant() throws SQLException {
         if (restaurantRepository.updateRestaurant(2, "shreya")) {
             System.out.println("Restaurant updated successfully");
         } else {
@@ -52,7 +52,7 @@ public class RestaurantService {
         }
     }
 
-    public static void createRestaurant() {
+    public  void createRestaurant() {
         Restaurant restaurant = new Restaurant();
         restaurantRepository.createRestaurant(restaurant);
         restaurantRepository.displayRestaurant(restaurant);
@@ -76,8 +76,6 @@ public class RestaurantService {
             restaurant.setCity(city);
             restaurant.setArea(area);
 
-            restaurants.put(1, restaurant);
-
         } catch (Exception e) {
             System.out.println("Invalid input type. Please enter correct data.");
         }
@@ -85,15 +83,10 @@ public class RestaurantService {
 
     public static void displayRestaurant() {
         try {
-            restaurants.forEach((id, restaurant) ->
-                    System.out.println("Restaurant Id " + id + " = " + restaurant));
+//            restaurants.forEach((id, restaurant) ->
+//                    System.out.println("Restaurant Id " + id + " = " + restaurant));
         } catch (Exception e) {
             System.out.println("Invalid input type. Please enter correct data.");
         }
-    }
-
-    // Setter method for restaurantRepository
-    public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
-        RestaurantService.restaurantRepository = restaurantRepository;
     }
 }

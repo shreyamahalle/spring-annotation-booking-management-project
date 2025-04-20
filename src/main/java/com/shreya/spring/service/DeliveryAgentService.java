@@ -12,20 +12,20 @@ import java.util.*;
 @Data
 
 public class DeliveryAgentService implements DeliveryAgentServiceInterface {
-    public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
-    private static DeliveryAgentRepository deliveryAgentRepository;
+
+    @Autowired
+    private DeliveryAgentRepository deliveryAgentRepository;
     private final Scanner sc = new Scanner(System.in);
 
-    public static void insertDeliveryAgent() {
-        Scanner scanner = new Scanner(System.in);
+    public void insertDeliveryAgent() {
         System.out.println("Pls enter deliveryAgent mobileNo:");
-        int mobileNo = Integer.parseInt(scanner.nextLine());
+        int mobileNo = Integer.parseInt(sc.nextLine());
         System.out.println("Pls enter deliveryAgent id:");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = Integer.parseInt(sc.nextLine());
         System.out.println("Pls enter name:");
-        String name = scanner.nextLine();
+        String name = sc.nextLine();
         System.out.println("Pls enter city :");
-        String city = scanner.nextLine();
+        String city = sc.nextLine();
 
         DeliveryAgent deliveryAgent = new DeliveryAgent(mobileNo, id, name, city);
 
@@ -40,7 +40,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
         }
     }
 
-    public static void deleteDeliveryAgent() {
+    public void deleteDeliveryAgent() {
 
         try {
             if (deliveryAgentRepository.deleteDeliveryAgent(1)) {
@@ -53,19 +53,9 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
         }
     }
 
-    public static void DeliveryAgent(DeliveryAgent deliveryAgent) {
+    public void DeliveryAgent(DeliveryAgent deliveryAgent) {
 
         deliveryAgentRepository.retrieveDeliveryAgent(1, "abc");
-    }
-
-    // Getter for deliveryAgentRepository (if needed)
-    public DeliveryAgentRepository getDeliveryAgentRepository() {
-        return deliveryAgentRepository;
-    }
-
-    // Setter for deliveryAgentRepository
-    public void setDeliveryAgentRepository(DeliveryAgentRepository deliveryAgentRepository) {
-        this.deliveryAgentRepository = deliveryAgentRepository;
     }
 
     public List<DeliveryAgent> retrieveDeliveryAgents() {
@@ -96,7 +86,6 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
             deliveryAgent.setId(id);
             deliveryAgent.setName(name);
             deliveryAgent.setCity(city);
-            deliveryAgents.put(1, deliveryAgent);
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
@@ -106,7 +95,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
         try {
             //java 8 features forEach loop
-            deliveryAgents.forEach((id, deliveryAgents) -> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
+            //deliveryAgents.forEach((id, deliveryAgents) -> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
 
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");

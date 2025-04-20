@@ -38,11 +38,11 @@ public class DeliveryAgentController {
                         break;
                     case 3:
                         System.out.println("Performing create operation on deliveryAgent");
-                        DeliveryAgentService.insertDeliveryAgent();
+                        deliveryAgentService.insertDeliveryAgent();
                         break;
                     case 4:
                         System.out.println("delete deliveryAgent");
-                        DeliveryAgentService.deleteDeliveryAgent();
+                        deliveryAgentService.deleteDeliveryAgent();
                         break;
                     case 5:
                         System.out.println("Retrieve DeliveryAgent");

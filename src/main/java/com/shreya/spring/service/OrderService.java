@@ -16,20 +16,20 @@ import java.util.Scanner;
 
 public class OrderService implements OrderNumberService {
 
-    private static  OrderRepository orderRepository;
-    HashMap<Integer, Order> orders = new HashMap<>();
+    @Autowired
+    private OrderRepository orderRepository;
     Scanner sc = new Scanner(System.in);
 
-    public static void insertOrder(Order order) throws SQLException {
+    public  void insertOrder(Order order) throws SQLException {
         orderRepository.addOrder(order);
     }
 
-    public static void Order(Order order) throws SQLException {
+    public  void Order(Order order) throws SQLException {
 
         orderRepository.retrieveOrder(1, "abc");
     }
 
-    public static void deleteOrder() {
+    public  void deleteOrder() {
 
         try {
             if (orderRepository.deleteOrder(1)) {
@@ -42,7 +42,7 @@ public class OrderService implements OrderNumberService {
         }
     }
 
-    public static void updateOrder() throws SQLException {
+    public  void updateOrder() throws SQLException {
         if (orderRepository.updateOrder(2, "meal")) {
             System.out.println("Order updated successfully ");
         } else {
@@ -51,16 +51,11 @@ public class OrderService implements OrderNumberService {
 
     }
 
-    public static void deleteOrder(int orderId) {
+    public  void deleteOrder(int orderId) {
         String removeOrder = String.valueOf(orderId);
         System.out.println("remove order " + removeOrder);
     }
 
-    // This setter is required for Spring to inject the dependency
-    public void setOrderRepository(OrderRepository orderRepository) {
-        OrderService.orderRepository = orderRepository;
-
-    }
     public List<Order> retrieveOrders() {
         return orderRepository.retrieveOrders();
     }
@@ -92,7 +87,7 @@ public class OrderService implements OrderNumberService {
             order.setPaymentMethod(paymentMethod);
             order.setNote(note);
             order.setType(type);
-            orders.put(1, order);
+
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
@@ -110,7 +105,7 @@ public class OrderService implements OrderNumberService {
 //            }
 
             //java 8 features forEach loop..
-            orders.forEach((Id, orders) -> System.out.println("orderId " + Id + " = order info " + orders));
+            //orders.forEach((Id, orders) -> System.out.println("orderId " + Id + " = order info " + orders));
 
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
