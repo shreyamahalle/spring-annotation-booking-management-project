@@ -17,6 +17,7 @@ public class OrderController {
 
     @Autowired
     private Scanner scanner;
+    @Autowired
     private OrderService orderService;
 
     public void run() {

@@ -13,6 +13,7 @@ public class DeliveryAgentController {
     //  Autowire the service properly
     @Autowired
     private DeliveryAgentService deliveryAgentService;
+    @Autowired
     private Scanner scanner;
 
     public void run() {

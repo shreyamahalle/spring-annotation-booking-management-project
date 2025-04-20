@@ -17,6 +17,7 @@ public class CustomerController {
 
     @Autowired
     private Scanner scanner;
+    @Autowired
     private CustomerService customerService;
 
     public void run() {

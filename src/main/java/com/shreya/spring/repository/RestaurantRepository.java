@@ -3,22 +3,17 @@ package com.shreya.spring.repository;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.service.ConnectionService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 
 public class RestaurantRepository {
 
     private static Connection connection = null;
-    Set<Restaurant> restaurants = new HashSet<>();
 
     private void initConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
@@ -154,25 +149,5 @@ public class RestaurantRepository {
                 }
             }
         }
-    }
-
-    public void createRestaurant(Restaurant restaurant) {
-
-        restaurants.add(restaurant);
-    }
-
-    public void displayRestaurant(Restaurant restaurant) {
-
-        restaurants.remove(restaurant);
-    }
-
-    public void displayRestaurantToBeClosed(String name) {
-        Restaurant restaurantToBeClosed = null;
-        for (Restaurant restaurant : restaurants) {
-            if (restaurant.getName() == name) {
-                restaurantToBeClosed = restaurant;
-            }
-        }
-        restaurants.remove(restaurantToBeClosed);
     }
 }

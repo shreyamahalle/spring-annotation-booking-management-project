@@ -15,7 +15,6 @@ import java.util.Set;
 public class OrderRepository {
 
     private static Connection connection = null;
-    Set<Order> orders = new HashSet<>();
 
     private void initConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
@@ -152,24 +151,4 @@ public class OrderRepository {
             }
         }
     }
-
-    public void createOrder(Order order) {
-
-        orders.add(order);
-    }
-
-    public void displayOrder(Order order) {
-        orders.remove(order);
-    }
-
-    public void displayOrderToBeClosed(int id) {
-        Order orderToBeClosed = null;
-        for (Order order : orders) {
-            if (order.getId() == id) {
-                orderToBeClosed = order;
-            }
-        }
-        orders.remove(orderToBeClosed);
-    }
-
 }

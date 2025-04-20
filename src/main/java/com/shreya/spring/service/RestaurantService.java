@@ -17,6 +17,7 @@ public class RestaurantService {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
+    @Autowired
     private Scanner scanner;
 
     public static void displayRestaurant() {
@@ -61,11 +62,6 @@ public class RestaurantService {
     }
 
     public void createRestaurant() {
-        Restaurant restaurant = new Restaurant();
-        restaurantRepository.createRestaurant(restaurant);
-        restaurantRepository.displayRestaurant(restaurant);
-        restaurantRepository.displayRestaurantToBeClosed("name");
-
         try {
             System.out.println("Please enter registerNo");
             int registerNo = Integer.parseInt(scanner.nextLine());
@@ -78,11 +74,6 @@ public class RestaurantService {
 
             System.out.println("Please enter area");
             String area = scanner.nextLine();
-
-            restaurant.setRegisterNo(registerNo);
-            restaurant.setName(name);
-            restaurant.setCity(city);
-            restaurant.setArea(area);
 
         } catch (Exception e) {
             System.out.println("Invalid input type. Please enter correct data.");

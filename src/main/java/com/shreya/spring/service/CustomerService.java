@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 @Service
@@ -18,9 +16,9 @@ import java.util.Scanner;
 
 public class CustomerService {
 
-    private final Map<Integer, Customer> customers = new HashMap<>();
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
     private Scanner scanner;
 
     public void insertCustomer() throws SQLException {
@@ -79,15 +77,11 @@ public class CustomerService {
     }
 
     public void displayCustomerInfo() throws CustomerNotfound {
-        customers.entrySet().stream().parallel()
-                .filter(entry -> entry.getValue().getId() > 101)
-                .forEach(entry -> System.out.println("Customer ID: " + entry.getKey() + " = Customer Info: " + entry.getValue()));
     }
 
     public void createCustomer() {
         Customer customer = new Customer();
         customerRepository.createCustomer(customer);
-        customerRepository.displayCustomerToBeClosed(1);
 
         try {
             System.out.println("Please enter customer details:");
@@ -120,20 +114,5 @@ public class CustomerService {
         } catch (Exception e) {
             System.out.println("Invalid input. Please check the data and try again.");
         }
-    }
-
-    public void displayCustomers() {
-        try {
-            //Set<Map.Entry<Integer, Customer>> entrySet = customers.entrySet();
-//            for (Map.Entry<Integer, Customer> customerEntry : entrySet) {
-//                System.out.println("Customer Info: " + customers);
-//            }
-            //java 8 features forEach loop ...
-            customers.forEach((customerId, customers) -> System.out.println("Customer Id " + customerId + " = Customer Info " + customers));
-
-        } catch (Exception e) {
-            System.out.println("Error occurred");
-        }
-
     }
 }

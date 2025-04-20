@@ -14,7 +14,6 @@ import java.util.Set;
 public class CustomerRepository {
 
     private static Connection connection = null;
-    Set<Customer> customers = new HashSet<>();
 
     private void initConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
@@ -188,13 +187,4 @@ public class CustomerRepository {
         }
     }
 
-    public void displayCustomerToBeClosed(int id) {
-        Customer customerToBeClosed = null;
-        for (Customer customer : customers) {
-            if (customer.getId() == id) {
-                customerToBeClosed = customer;
-            }
-        }
-        customers.remove(customerToBeClosed);
-    }
 }

@@ -14,6 +14,7 @@ public class RestaurantController {
 
     @Autowired
     private Scanner scanner;
+    @Autowired
     private RestaurantService restaurantService;
 
     public void run() {

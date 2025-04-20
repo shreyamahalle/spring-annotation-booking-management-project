@@ -17,6 +17,7 @@ public class OrderService implements OrderNumberService {
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
     private Scanner scanner;
 
     public void insertOrder(Order order) throws SQLException {
@@ -64,10 +65,6 @@ public class OrderService implements OrderNumberService {
     }
 
     public void createOrder() {
-        Order order = new Order();
-        orderRepository.createOrder(order);
-        orderRepository.displayOrder(order);
-        orderRepository.displayOrderToBeClosed(1);
 
         try {
             System.out.println("Please enter id");
@@ -81,11 +78,6 @@ public class OrderService implements OrderNumberService {
 
             System.out.println("Please enter paymentMethod");
             String paymentMethod = scanner.nextLine();
-
-            order.setId(id);
-            order.setPaymentMethod(paymentMethod);
-            order.setNote(note);
-            order.setType(type);
 
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");

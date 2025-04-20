@@ -16,6 +16,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
     @Autowired
     private DeliveryAgentRepository deliveryAgentRepository;
+    @Autowired
     private Scanner scanner;
 
     public void insertDeliveryAgent() {
@@ -65,10 +66,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     }
 
     public void createDeliveryAgent() {
-        DeliveryAgent deliveryAgent = new DeliveryAgent();
-        deliveryAgentRepository.createDeliveryAgent(deliveryAgent);
-        deliveryAgentRepository.displayDeliveryAgent(deliveryAgent);
-        deliveryAgentRepository.displayDeliveryAgentToBeClosed(1);
+
         try {
 
             System.out.println("Please enter mobileNo");
@@ -83,24 +81,14 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
             System.out.println("Please enter city");
             String city = String.valueOf(Integer.parseInt(scanner.nextLine()));
 
-            deliveryAgent.setMobileNo(mobileNo);
-            deliveryAgent.setId(id);
-            deliveryAgent.setName(name);
-            deliveryAgent.setCity(city);
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
     }
 
+    @Override
     public void displayDeliveryAgent() {
 
-        try {
-            //java 8 features forEach loop
-            //deliveryAgents.forEach((id, deliveryAgents) -> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
-
-        } catch (Exception e) {
-            System.out.println("Invalid input type correct data");
-        }
     }
 }
 
