@@ -10,12 +10,10 @@ import java.util.Scanner;
 @Component
 public class DeliveryAgentController {
 
-    // DO NOT autowire Scanner — create normally
-    private final Scanner sc = new Scanner(System.in);
-
     //  Autowire the service properly
     @Autowired
     private DeliveryAgentService deliveryAgentService;
+    private Scanner scanner;
 
     public void run() {
         int option;
@@ -29,7 +27,7 @@ public class DeliveryAgentController {
             System.out.println("0. Back to the Main Menu");
             System.out.print("Enter choice: ");
 
-            option = Integer.parseInt(sc.nextLine());
+            option = Integer.parseInt(scanner.nextLine());
             try {
                 switch (option) {
                     case 1 -> {

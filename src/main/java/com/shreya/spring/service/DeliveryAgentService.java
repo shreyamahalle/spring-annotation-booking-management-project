@@ -16,17 +16,16 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
     @Autowired
     private DeliveryAgentRepository deliveryAgentRepository;
-    private final Scanner sc = new Scanner(System.in);
-
+    private Scanner scanner;
     public void insertDeliveryAgent() {
         System.out.println("Pls enter deliveryAgent mobileNo:");
-        int mobileNo = Integer.parseInt(sc.nextLine());
+        int mobileNo = Integer.parseInt(scanner.nextLine());
         System.out.println("Pls enter deliveryAgent id:");
-        int id = Integer.parseInt(sc.nextLine());
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Pls enter name:");
-        String name = sc.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Pls enter city :");
-        String city = sc.nextLine();
+        String city = scanner.nextLine();
 
         DeliveryAgent deliveryAgent = new DeliveryAgent(mobileNo, id, name, city);
 
@@ -72,16 +71,16 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
         try {
 
             System.out.println("Please enter mobileNo");
-            int mobileNo = Integer.parseInt(sc.nextLine());
+            int mobileNo = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Please enter id");
-            int id = Integer.parseInt(sc.nextLine());
+            int id = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Please enter name");
-            String name = sc.nextLine();
+            String name = scanner.nextLine();
 
             System.out.println("Please enter city");
-            String city = String.valueOf(Integer.parseInt(sc.nextLine()));
+            String city = String.valueOf(Integer.parseInt(scanner.nextLine()));
 
             deliveryAgent.setMobileNo(mobileNo);
             deliveryAgent.setId(id);

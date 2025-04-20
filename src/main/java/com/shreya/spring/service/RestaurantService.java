@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,7 +17,7 @@ public class RestaurantService {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
-    private static final Scanner sc = new Scanner(System.in);
+    private Scanner scanner;
 
     public List<Restaurant> retrieveRestaurants() {
         return restaurantRepository.retrieveRestaurants();
@@ -60,16 +59,16 @@ public class RestaurantService {
 
         try {
             System.out.println("Please enter registerNo");
-            int registerNo = Integer.parseInt(sc.nextLine());
+            int registerNo = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Please enter name");
-            String name = sc.nextLine();
+            String name = scanner.nextLine();
 
             System.out.println("Please enter city");
-            String city = sc.nextLine();
+            String city = scanner.nextLine();
 
             System.out.println("Please enter area");
-            String area = sc.nextLine();
+            String area = scanner.nextLine();
 
             restaurant.setRegisterNo(registerNo);
             restaurant.setName(name);

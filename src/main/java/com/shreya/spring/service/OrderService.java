@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,7 +17,7 @@ public class OrderService implements OrderNumberService {
 
     @Autowired
     private OrderRepository orderRepository;
-    Scanner sc = new Scanner(System.in);
+    private Scanner scanner;
 
     public  void insertOrder(Order order) throws SQLException {
         orderRepository.addOrder(order);
@@ -72,16 +71,16 @@ public class OrderService implements OrderNumberService {
 
         try {
             System.out.println("Please enter id");
-            int id = Integer.parseInt(sc.nextLine());
+            int id = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Please enter type");
-            String type = sc.nextLine();
+            String type = scanner.nextLine();
 
             System.out.println("Please enter note");
-            String note = sc.nextLine();
+            String note = scanner.nextLine();
 
             System.out.println("Please enter paymentMethod");
-            String paymentMethod = sc.nextLine();
+            String paymentMethod = scanner.nextLine();
 
             order.setId(id);
             order.setPaymentMethod(paymentMethod);

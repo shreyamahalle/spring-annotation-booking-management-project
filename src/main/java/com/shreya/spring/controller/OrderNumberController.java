@@ -12,8 +12,7 @@ public class OrderNumberController {
 
     OrderService orderService = new OrderService();
     Order order = new Order();
-    private Scanner sc = new Scanner(System.in);
-
+    private Scanner scanner;
     public void run() {
         int option;
         do {
@@ -22,7 +21,7 @@ public class OrderNumberController {
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
-            option = Integer.parseInt(sc.nextLine());
+            option = Integer.parseInt(scanner.nextLine());
             try {
                 switch (option) {
                     case 1:

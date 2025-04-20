@@ -14,8 +14,9 @@ import java.util.Scanner;
 @AllArgsConstructor
 public class CustomerController {
 
+
     @Autowired
-    private final Scanner sc = new Scanner(System.in);
+    private Scanner scanner;
     private CustomerService customerService;
 
     public void run() {
@@ -32,7 +33,7 @@ public class CustomerController {
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
-            option = Integer.parseInt(this.sc.nextLine());
+            option = Integer.parseInt(this.scanner.nextLine());
             try {
                 switch (option) {
                     case 1:

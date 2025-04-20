@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class OrderController {
 
     @Autowired
-    private Scanner sc = new Scanner(System.in);
+    private Scanner scanner;
     private OrderService orderService;
 
     public void run() {
@@ -32,7 +32,7 @@ public class OrderController {
             System.out.println("0. Back to Main Menu");
             System.out.print("Enter choice: ");
 
-            option = Integer.parseInt(sc.nextLine());
+            option = Integer.parseInt(scanner.nextLine());
             try {
                 switch (option) {
                     case 1:

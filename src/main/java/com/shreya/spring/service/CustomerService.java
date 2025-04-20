@@ -20,9 +20,10 @@ public class CustomerService {
 
     @Autowired
     private  CustomerRepository customerRepository;
+    private Scanner scanner;
 
     private final Map<Integer, Customer> customers = new HashMap<>();
-    private final Scanner sc = new Scanner(System.in);
+
 
     public void insertCustomer() throws SQLException {
         Scanner scanner = new Scanner(System.in);
@@ -94,19 +95,19 @@ public class CustomerService {
             System.out.println("Please enter customer details:");
 
             System.out.print("Enter ID: ");
-            int id = Integer.parseInt(sc.nextLine());
+            int id = Integer.parseInt(scanner.nextLine());
 
             System.out.print("Enter Name: ");
-            String name = sc.nextLine();
+            String name = scanner.nextLine();
 
             System.out.print("Enter City: ");
-            String city = sc.nextLine();
+            String city = scanner.nextLine();
 
             System.out.print("Enter Mobile Number: ");
-            int mobileNo = Integer.parseInt(sc.nextLine());
+            int mobileNo = Integer.parseInt(scanner.nextLine());
 
             System.out.print("Enter Age: ");
-            int age = Integer.parseInt(sc.nextLine());
+            int age = Integer.parseInt(scanner.nextLine());
 
             customer.setId(id);
             customer.setName(name);
