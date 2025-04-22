@@ -6,10 +6,11 @@ import com.shreya.spring.service.OrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-
+@Controller
 @Component
 @AllArgsConstructor
 

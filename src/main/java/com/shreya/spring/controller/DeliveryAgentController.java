@@ -1,12 +1,13 @@
 package com.shreya.spring.controller;
-
 import com.shreya.spring.exception.DeliveryAgentException;
 import com.shreya.spring.service.DeliveryAgentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
 
+@Controller
 @Component
 public class DeliveryAgentController {
 
