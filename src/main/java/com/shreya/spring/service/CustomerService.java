@@ -22,7 +22,6 @@ public class CustomerService {
     private Scanner scanner;
 
     public void insertCustomer() throws SQLException {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Pls enter customer id:");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Pls enter customer name:");
